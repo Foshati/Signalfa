@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="توصیف کوتاه محتوای صفحه" />
+    <meta name="keywords" content="کلمات, کلیدی, مرتبط, با, صفحه" />
+    <title></title>
+
+    <style type="text/tailwindcss">
+      @layer utilities {
+        .content-auto {
+          content-visibility: auto;
+        }
+      }
+    </style>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    {% include 'inc/navbar.html' %}
+    {% block content %}
+
+    {% endblock %}
+  </body>
+</html>

@@ -1,0 +1,43 @@
+{
+    "cSpell.words": [
+        "mkcert"
+    ],
+    "customCommands.commands": [
+        {
+            "name": "Hello asdsadsad",
+            "command": "echo Hello World",
+            "runOnStartup": false,
+            "runOnShutdown": false
+        },
+        {
+            "name": "Run Server python3",
+            "command": "python3 manage.py runserver",
+            "runOnStartup": false,
+            "runOnShutdown": false
+        }
+    ],
+    "workbench.colorCustomizations": {
+        "titleBar.activeBackground": "#0a0f15",
+        "editor.selectionBackground": "#45668B",
+        "terminal.background": "#0C0D0E",
+        "terminal.foreground": "#B7B8B9",
+        "terminalCursor.background": "#B7B8B9",
+        "terminalCursor.foreground": "#B7B8B9",
+        "terminal.ansiBlack": "#0C0D0E",
+        "terminal.ansiBlue": "#3182BD",
+        "terminal.ansiBrightBlack": "#737475",
+        "terminal.ansiBrightBlue": "#3182BD",
+        "terminal.ansiBrightCyan": "#80B1D3",
+        "terminal.ansiBrightGreen": "#31A354",
+        "terminal.ansiBrightMagenta": "#756BB1",
+        "terminal.ansiBrightRed": "#E31A1C",
+        "terminal.ansiBrightWhite": "#FCFDFE",
+        "terminal.ansiBrightYellow": "#DCA060",
+        "terminal.ansiCyan": "#80B1D3",
+        "terminal.ansiGreen": "#31A354",
+        "terminal.ansiMagenta": "#756BB1",
+        "terminal.ansiRed": "#E31A1C",
+        "terminal.ansiWhite": "#B7B8B9",
+        "terminal.ansiYellow": "#DCA060"
+    }
+}
