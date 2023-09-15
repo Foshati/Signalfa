@@ -20,3 +20,4 @@ Project Description
 - [x] 8.create register form and Design with tailwind
 - [x] 9.add a widget and style form
 - [x] 10.add name spaces in urls
+- [x] 11.Create a  register view
