@@ -1,14 +1,32 @@
 <nav class="p-6 bg-gray-400">
-  <ul class="flex gap-6 justify-center items-center">
-    <li>
-      <a href="{% url 'home:home' %}" class="hover:text-blue-700 transitions-all">Home</a>
-    </li>
-
-    <li>
-      <a href="" class="hover:text-blue-700 transitions-all">Users</a>
-    </li>
-    <li>
-      <a href="{% url 'account:user_register' %}" class="hover:text-blue-700 transitions-all">register</a>
-    </li>
+  <ul class="flex justify-between items-center">
+    <div class="flex gap-6">
+      <li>
+        <a href="{% url 'home:home' %}" class="hover:text-blue-700 transitions-all">Home</a>
+      </li>
+      <li>
+        <a href="{% url 'home:home' %}" class="hover:text-blue-700 transitions-all">Global</a>
+      </li>
+      <li>
+        <a href="{% url 'home:home' %}" class="hover:text-blue-700 transitions-all">Post</a>
+      </li>
+    </div>
+    <div class="flex items-center gap-4">
+      {% if request.user.is_authenticated %}
+        <li>
+          <a href="{% url 'account:user_profile' request.user.id %}" class="hover:text-blue-700 transitions-all">Profile</a>
+        </li>
+        <li>
+          <a href="{% url 'account:user_logout' %}" class="hover:text-blue-700 transitions-all">Log Out</a>
+        </li>
+      {% else %}
+        <li>
+          <a href="{% url 'account:user_register' %}" class="hover:text-blue-700 transitions-all">Register /</a>
+        </li>
+        <li>
+          <a href="{% url 'account:user_login' %}" class="hover:text-blue-700 transitions-all">Login</a>
+        </li>
+      {% endif %}
+    </div>
   </ul>
 </nav>

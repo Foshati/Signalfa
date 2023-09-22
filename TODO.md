@@ -21,3 +21,30 @@ Project Description
 - [x] 9.add a widget and style form
 - [x] 10.add name spaces in urls
 - [x] 11.Create a  register view
+- [x] 12.clean specific form filed email and username Form validation
+- [x] 13.password1 and password2 Form validation
+- [x] 14.create a login view and form and .html and url
+- [x] 15.create a log out view and fix navbar
+- [x] 
+- [x] 
+- [x] 
+- [x] 
+- [x] 
+- [x] 
+- [x] 
+- [x] 
+- [x] 
+- [x] 
+- [x] 
+- [x] 
+- [x] 
+- [x] 
+- [x] 
+- [x] 
+- [x] 
+- [x] 
+- [x] 
+- [x] 
+- [x] 
+- [x] 
+- [x] 
