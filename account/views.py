@@ -1,12 +1,13 @@
 from typing import Any
 from django import http
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.views import View
 from .forms import UserRegisterForm, UserLoginForm
 from django.contrib.auth.models import User
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.mixins import LoginRequiredMixin
+from home.models import Post
 
 # Create your views here.
 
@@ -72,8 +73,8 @@ class UserLogoutView(LoginRequiredMixin, View):
         return redirect("home:home")
 
 
-# Profile
 class UserProfileView(LoginRequiredMixin, View):
     def get(self, request, user_id):
-        user = User.objects.get(pk=user_id)
-        return render(request, "account/profile.html", {"user": user})
+        user = get_object_or_404(User, pk=user_id)
+        posts = Post.objects.filter(user=user)
+        return render(request, "account/profile.html", {"user": user, "posts": posts})

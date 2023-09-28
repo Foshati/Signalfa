@@ -1,5 +1,8 @@
 {% if messages %}
   {% for msg in messages %}
-    <p class="bg-green-400 p-4 rounded-full mt-4 w-[20rem]">{{ msg }}</p>
+  <div class="flex justify-end">
+    <p class="flex justify-center z-10  bg-green-400 p-4 rounded-full m-4 w-[20rem]">{{ msg }}</p>
+
+  </div>
   {% endfor %}
 {% endif %}

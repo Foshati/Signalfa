@@ -1,4 +1,22 @@
 {% extends 'base.html' %}
 {% block content %}
   <h2 class="flex justify-center p-6">{{ user.username }}</h2>
+
+  {% if request.user.id == user.id %}
+    <div class="mt-6 p-4 flex justify-end gap-4">
+      <a class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full cursor-pointer" href="{% url 'home:post_create' %}">Create Post</a>
+    </div>
+  {% endif %}
+
+  <div class="grid grid-cols-3 gap-4">
+    {% for post in posts %}
+      <div class="flex flex-col">
+        {% if post.Image %}
+          <img class="p-4 w-[30rem] h-[15rem]" src="{{ post.Image.url }}" alt="" />
+        {% endif %}
+
+        <a href="{{ post.get_absolute_url }}" class="flex justify-center hover:text-blue-800 hover:font-bold transition-all duration-300 px-14 my-8">{{ post.body|truncatewords:8 }}</a>
+      </div>
+    {% endfor %}
+  </div>
 {% endblock %}

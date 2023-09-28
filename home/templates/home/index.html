@@ -1,5 +1,16 @@
 {% extends 'base.html' %}
-
 {% block content %}
-  <p class="">page</p>
+  <h1 class="flex justify-center p-4 m-4 text-yellow-700 font-bold text-2xl">SignalFA</h1>
+
+  <div class="grid grid-cols-3 gap-4">
+    {% for post in posts %}
+      <div class="flex flex-col">
+        {% if post.Image %}
+          <img class="p-4 w-[30rem] h-[15rem]" src="{{ post.Image.url }}" alt="" />
+        {% endif %}
+
+        <a href="{{ post.get_absolute_url }}" class="flex justify-center hover:text-blue-800 hover:font-bold transition-all duration-300 px-14 mb-8">{{ post.body|truncatewords:8 }}</a>
+      </div>
+    {% endfor %}
+  </div>
 {% endblock %}

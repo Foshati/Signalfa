@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+  {% if request.user.id == post.user.id %}
+    <div class="mt-6 p-4 flex justify-end gap-4">
+      <a class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full cursor-pointer" href="{% url 'home:post_update' post.id %}">Update</a>
+      <a class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full cursor-pointer" href="{% url 'home:post_delete' post.id %}">Delete</a>
+    </div>
+  {% endif %}
+
+  <div class="flex justify-center">
+    <img class="rounded-full w-24 mt-10" src="{{ post.profileImg.url }}" alt="" />
+  </div>
+
+  <a href="{% url 'account:user_profile' post.user.id %}" class="flex justify-center font-bold text-green-500 hover:text-green-800">{{ post.user.username }}</a>
+  <h3 class="flex justify-center mt-2 text-green-700">{{ post.user.email }}</h3>
+  <h4 class="flex justify-center text-sm text-gray-700 font-light">{{ post.updated|date:'Y-M' }}</h4>
+  <div class="flex justify-center">
+    <img class="rounded-xl w-[40rem] mt-10" src="{{ post.Image.url }}" alt="" />
+  </div>
+  <p class="flex justify-center px-14 my-16">{{ post.body }}</p>
+{% endblock %}

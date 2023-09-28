@@ -39,5 +39,9 @@
         "terminal.ansiRed": "#E31A1C",
         "terminal.ansiWhite": "#B7B8B9",
         "terminal.ansiYellow": "#DCA060"
-    }
+    },
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.black-formatter"
+    },
+    "python.formatting.provider": "none"
 }
