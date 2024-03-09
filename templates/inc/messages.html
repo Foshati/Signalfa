@@ -1,8 +1,21 @@
 {% if messages %}
   {% for msg in messages %}
-  <div class="flex justify-end">
-    <p class="flex justify-center z-10  bg-green-400 p-4 rounded-full m-4 w-[20rem]">{{ msg }}</p>
-
-  </div>
+    <div class="flex justify-end">
+      {% if msg.tags == 'success' %}
+        <div class="m-4" role="alert">
+          <div class="bg-green-500 text-white font-bold rounded-t px-4 py-2">Success</div>
+          <div class="border border-t-0 border-green-400 rounded-b bg-green-100 px-4 py-3 text-green-700">
+            <p>{{ msg }}</p>
+          </div>
+        </div>
+      {% else %}
+        <div role="alert">
+          <div class="bg-red-500 text-white font-bold rounded-t px-4 py-2">Error</div>
+          <div class="border border-t-0 border-red-400 rounded-b bg-red-100 px-4 py-3 text-red-700">
+            <p>{{ msg }}</p>
+          </div>
+        </div>
+      {% endif %}
+    </div>
   {% endfor %}
 {% endif %}

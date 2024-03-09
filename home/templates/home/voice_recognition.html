@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <form method="post">
+    {% csrf_token %}
+    {{ form.user_input.label_tag }}
+    {{ form.user_input }}
+    <button type="submit">Submit</button>
+  </form>
+
+  {% if response_text %}
+    <p>{{ response_text }}</p>
+  {% endif %}
+{% endblock %}

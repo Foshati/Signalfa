@@ -1,4 +1,4 @@
-<nav class="p-6 bg-gray-400">
+<nav class="p-6 bg-gray-900 text-gray-50">
   <ul class="flex justify-between items-center">
     <div class="flex gap-6">
       <li>
@@ -11,6 +11,8 @@
         <a href="{% url 'home:home' %}" class="hover:text-blue-700 transitions-all">Post</a>
       </li>
     </div>
+    <h1 class="flex justify-center text-yellow-700 font-bold text-2xl">SignalFA</h1>
+
     <div class="flex items-center gap-4">
       {% if request.user.is_authenticated %}
         <li>

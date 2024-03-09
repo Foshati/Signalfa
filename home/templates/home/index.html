@@ -1,6 +1,10 @@
-{% extends 'base.html' %}
-{% block content %}
-  <h1 class="flex justify-center p-4 m-4 text-yellow-700 font-bold text-2xl">SignalFA</h1>
+{% extends 'base.html' %} {% block content %}
+  <h1 class="flex justify-center p-2 m-4 text-yellow-700 font-bold text-2xl"></h1>
+
+  <form class="p-4 ml-4 text-yellow-700 " action="" method="get">
+    {{ form.as_p }}
+    <input type="submit" name="" id="" value="" />
+  </form>
 
   <div class="grid grid-cols-3 gap-4">
     {% for post in posts %}

@@ -18,5 +18,69 @@
   <div class="flex justify-center">
     <img class="rounded-xl w-[40rem] mt-10" src="{{ post.Image.url }}" alt="" />
   </div>
-  <p class="flex justify-center px-14 my-16">{{ post.body }}</p>
+  <p class="flex justify-center px-14 my-16">{{ post.body }}</p> <br /> <br />
+
+  <hr />
+
+  {% if request.user.is_authenticated %}
+    <a href="{% url 'home:post_like' post.id %}">
+      <button class="flex flex-col items-center gap-1 m-4 item-center middle none center flex justify-center rounded-lg bg-pink-500 p-3 font-sans text-xs font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-pink-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none" data-ripple-light="true" style="position: relative; overflow: hidden;">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd" />
+          <p>{{ post.like_count }}</p>
+        </svg>
+      </button>
+    </a>
+
+    <form action="" method="post" class="flex bg-gray-300 p-5">
+      {% csrf_token %}
+      <div class="ml-3">{{ form.as_p }}</div>
+
+      <input type="submit" value="send " class="text-black bg-gray-500 ml-4 hover:bg-gray-700 text-sm font-bold py-2 px-4 rounded-full cursor-pointer" />
+    </form>
+  {% else %}
+    <p>only logged in user can comment.</p>
+  {% endif %}
+
+  <br /> <br />
+  {% comment %}comments{% endcomment %}
+  <p class="ml-8 bg-gray-200 p-3 w-[12rem] rounded-full text-xs">{{ comments.count }} comments</p>
+  <div class="bg-gray-800 p-4 m-4 text-white rounded-xl">
+    {% for comment in comments %}
+      {% if request.user.is_authenticated %}
+        <div class="flex justify-between">
+          <p class="flex justify-between text-gray-400 text-sm">{{ comment.user }} | {{ comment.created|timesince }}</p>
+          <button id="show-reply-form-{{ comment.id }}" class="text-green-500 text-xs px-4 py-2 bg-gray-900 rounded-full" onclick="toggleReplyForm({{ comment.id }})">Reply to comment</button>
+        </div>
+        <p class="text-white mb-4 ml-3">{{ comment.body }}</p>
+
+        <form id="reply-form-{{ comment.id }}" action="{% url 'home:add_reply' post.id comment.id %}" method="post" style="display: none;">
+          {% csrf_token %}
+          {{ reply_form.as_p }}
+          <input type="submit" value="Send" class="text-black bg-gray-500 ml-4 hover-bg-gray-700 text-sm font-bold py-2 px-4 rounded-full cursor-pointer mx-3" />
+        </form>
+      {% endif %}
+
+      <script>
+        function toggleReplyForm(commentId) {
+          var replyForm = document.getElementById('reply-form-' + commentId)
+          if (replyForm.style.display === 'none' || replyForm.style.display === '') {
+            replyForm.style.display = 'block'
+          } else {
+            replyForm.style.display = 'none'
+          }
+        }
+      </script>
+
+      {% for reply in comment.rcomment.all %}
+        <div class="bg-gray-900 p-4 rounded-xl my-2">
+          <p class="text-yellow-400 text-sm">{{ reply.user }}</p>
+          <p class="text-white mb-4 ml-3">{{ reply.body }}</p>
+        </div>
+      {% endfor %}
+      <hr class="border-black mt-10 mb-6 border" />
+      {% empty %}
+      <p class="text-sm">No comments yet!</p>
+    {% endfor %}
+  </div>
 {% endblock %}
