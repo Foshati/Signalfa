@@ -1,14 +1,23 @@
+
 from django import forms
+
 
 from .models import Comment, Post
 
 
 class PostSearchForm(forms.Form):
     search = forms.CharField(
-        widget=forms.TextInput(attrs={'placeholder': 'search...', "class": "rounded-2xl  w-[25rem]  p-2",}),
-        label='',  # Make the label empty
-        required=False  # Make the field not required to allow it to be empty
+        widget=forms.TextInput(
+            attrs={
+                "placeholder": "search...",
+                "class": "rounded-2xl  w-[25rem]  p-2",
+            }
+        ),
+        label="",  # Make the label empty
+        required=False,  # Make the field not required to allow it to be empty
     )
+
+
 class PostCreateUpdateForm(forms.ModelForm):
     class Meta:
         model = Post

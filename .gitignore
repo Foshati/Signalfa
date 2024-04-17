@@ -11,6 +11,7 @@ db.sqlite3
 db.sqlite3-journal
 
 .DS_Store/
+•DS_Store
 .vscode
 TODO.md
 
