@@ -6,7 +6,12 @@ from .models import Profile
 
 class UserRegisterForm(forms.Form):
     username = forms.CharField(
-        widget=forms.TextInput(attrs={"placeholder": "sam", "class": "rounded-lg"}),
+        widget=forms.TextInput(
+            attrs={
+                "placeholder": "User",
+                "class": "rounded-lg",
+            }
+        ),
         max_length=10,
     )
     email = forms.EmailField(
@@ -49,14 +54,16 @@ class UserRegisterForm(forms.Form):
 
 class UserLoginForm(forms.Form):
     username = forms.CharField(
-        widget=forms.TextInput(attrs={"placeholder": "sam", "class": "rounded-lg"}),
+        widget=forms.TextInput(
+            attrs={"placeholder": "user name", "class": "rounded-lg"}
+        ),
         max_length=20,
         label="User Name",
     )
     password1 = forms.CharField(
         label="password",
         widget=forms.PasswordInput(
-            attrs={"class": "rounded-lg", "placeholder": "Enter Password"}
+            attrs={"class": "rounded-lg", "placeholder": " Password"}
         ),
     )
 

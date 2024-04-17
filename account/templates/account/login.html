@@ -1,12 +1,27 @@
 {% extends 'base.html' %}
 
 {% block content %}
-  <div class="flex justify-center items-center m-20">
-    <form novalidate action="" method="post" class="flex flex-col bg-blue-400 w-[24rem] h-[20rem] gap-6 m-4 rounded-lg p-6">
-      {% csrf_token %}
-      {{ form }}
-      <input type="submit" value="log in" class="bg-blue-700 hover:800 px-4 py-3 w-[8rem] rounded-lg mx-auto" />
-      <a class="text-center hover:text-green-400" href="{% url 'account:reset_password' %}">Reset Password</a>
-    </form>
-  </div>
+  <section class="min-h-screen flex flex-col justify-center items-center bg-gradient-to-r from-purple-400 to-blue-500">
+    <div class="rounded-lg sm:border-2 px-4 lg:px-24 py-16 lg:max-w-xl sm:max-w-md w-full text-center bg-white rounded-lg shadow-lg">
+      <form method="post" class="text-center">
+        {% csrf_token %}
+        <h1 class="font-bold tracking-wider text-3xl mb-8 text-gray-600">Sign in</h1>
+        <div class="py-2">{{ form.username }}</div>
+        <div class="py-2">{{ form.password1 }}</div>
+
+        <div class="py-2">
+          <button type="submit" class="border-2 border-gray-100 focus:outline-none bg-blue-600 text-white font-bold tracking-wider block w-full p-2 rounded-lg focus:border-blue-700 hover:bg-blue-700">Sign In</button>
+        </div>
+      </form>
+      <div class="text-center">
+        <a href="{% url 'account:reset_password' %}" class="hover:underline">Forgot password?</a>
+      </div>
+      {% comment %} <div class="text-center mt-12">
+        {% endcomment %}
+        {% comment %} <span>Don't have an account?</span> {% endcomment %}
+        {% comment %} <a href="" class="font-light text-md text-indigo-600 underline font-semibold hover:text-indigo-800">Create One</a> {% endcomment %}
+        {% comment %}
+      </div> {% endcomment %}
+    </div>
+  </section>
 {% endblock %}
