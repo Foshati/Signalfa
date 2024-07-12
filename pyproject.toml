@@ -11,6 +11,7 @@ python = "3.12.2"
 django = "^5.0.4"
 pillow = "^10.3.0"
 django-stubs = "^4.2.7"
+django-unfold = "^0.30.0"
 
 
 [build-system]
