@@ -16,13 +16,13 @@ tests = ["mypy (>=0.800)", "pytest", "pytest-asyncio"]
 
 [[package]]
 name = "django"
-version = "5.0.4"
+version = "5.0.9"
 description = "A high-level Python web framework that encourages rapid development and clean, pragmatic design."
 optional = false
 python-versions = ">=3.10"
 files = [
-    {file = "Django-5.0.4-py3-none-any.whl", hash = "sha256:916423499d75d62da7aa038d19aef23d23498d8df229775eb0a6309ee1013775"},
-    {file = "Django-5.0.4.tar.gz", hash = "sha256:4bd01a8c830bb77a8a3b0e7d8b25b887e536ad17a81ba2dce5476135c73312bd"},
+    {file = "Django-5.0.9-py3-none-any.whl", hash = "sha256:f219576ba53be4e83f485130a7283f0efde06a9f2e3a7c3c5180327549f078fa"},
+    {file = "Django-5.0.9.tar.gz", hash = "sha256:6333870d342329b60174da3a60dbd302e533f3b0bb0971516750e974a99b5a39"},
 ]
 
 [package.dependencies]
@@ -232,4 +232,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = "3.12.2"
-content-hash = "978160d83c9e79d99cef65d4dd2ecf6c5e3fe87f998d2b9a8b0a4a7adb5836e2"
+content-hash = "f337b7bfc6e7d18691072c10a46338701e692c316d8614de6e1c6ea9f54933fb"
